@@ -1,0 +1,17 @@
+<div class="Bottom">
+	中国建筑装饰百强企业十甲<img src="images/bottom_03.jpg" width="16" height="18" />中国十大室内建筑设计机构
+</div>
+<script type="text/javascript">
+	//整站无图处理
+	jQuery.each(jQuery("img"), function (i, n) { jQuery(n).error(function () { n.src = 'uploadfiles/nopic.jpg'; }); n.src = n.src; });
+	$(function(){
+		var _contain=$(".contain").outerHeight(true);
+		$(".contain").css("margin-top",-_contain/2);
+		
+		$(".contain_close").click(function(){
+			$(".Containbg").animate({width:0},1000,function(){
+				$(this).hide();
+			});
+		})
+	})
+</script>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="Author" content="">
+<meta content=" shop116703760.taobao.com/index.htm" name="design">
+<title>深圳市晶宫设计装饰工程有限公司</title>
+<link rel="stylesheet" type="text/css" href="css/css_whir.css"/>
+<script type="text/javascript" src="scripts/jquery-1.7.2.min.js"></script>
+<!--[if lte IE 9]>
+  <script type="text/javascript" src="scripts/html5shiv.v3.72.min.js"></script>
+<![endif]-->
+
+<script type="text/javascript">
+	var navID = "1",
+		menuID = "1";
+</script>
+<script type="text/javascript" src="scripts/jquery.SuperSlide.js"></script>
+</head>
+
+<body>
+<!--top-->
+<header class="top">
+	<div class="logo"><span><a href="index.html"><img src="images/logo.jpg" width="110" height="135" /></a></span></div>
+    <div class="mainnav">
+    	<div class="language"><a href="#" class="cn a">简</a><a href="#" class="ft">繁</a><a href="#" class="en">EN</a></div>
+		<nav>
+        	<ul>
+            	<li id="nav1"><a href="design.html">设计总院</a></li>
+            	<li id="nav2"><a href="case.html">精品案例</a></li>
+            	<li id="nav3"><a href="branch.html">设计分院</a></li>
+            	<li id="nav4"><a href="horon.html">设计荣誉</a></li>
+            	<li id="nav5"><a href="news.html">新闻资讯</a></li>
+            	<li id="nav6"><a href="contact.html">联系我们</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">©2014 深圳市晶宫设计装饰工程有限公司<br /><span>Designed by <a href="http://shop116703760.taobao.com/" target="_blank">我的虚拟世界店铺</a></span></div>
+    </div>
+</header>
+<section class="right_img"><span><img src="images/right_img_03.jpg" width="410" height="717"></span></section>
+<script type="text/javascript">
+	//导航选中
+	$("#nav" + navID).addClass("onnav");
+	
+	$(".mainnav nav li a").hover(function(){
+		$(this).stop().animate({width:105,paddingLeft:33},200);
+	},function(){
+		$(this).stop().animate({width:92,paddingLeft:46},200);
+	})
+</script>
+<!--top End-->
+
+<section class="Containbg">
+	<div class="contain_close"></div>
+	<div class="contain">
+        <div class="columnname">设计分院<br><span>Design branch</span></div>
+        <section class="MainContent branch">
+            <div class="Content">
+				<div class="list">
+					<div class="bd">
+                    	<ul>
+                        	<li><a href="branch_index.html">设计一分院</a></li>
+                        	<li><a href="branch_index.html">设计二分院</a></li>
+                        	<li><a href="branch_index.html">设计三分院</a></li>
+                        	<li><a href="branch_index.html">设计四分院</a></li>
+                        	<li><a href="branch_index.html">设计五分院</a></li>
+                        	<li><a href="branch_index.html">设计六分院</a></li>
+                        </ul>
+                    </div>
+                	<a href="javascript:void(0)" class="prev"></a>
+                	<a href="javascript:void(0)" class="next"></a>
+                </div>
+          </div>
+        </section>
+        <div class="clear"></div>
+	<div class="Bottom">
+	中国建筑装饰百强企业十甲<img src="images/bottom_03.jpg" width="16" height="18" />中国十大室内建筑设计机构
+</div>
+<script type="text/javascript">
+	//整站无图处理
+	jQuery.each(jQuery("img"), function (i, n) { jQuery(n).error(function () { n.src = 'uploadfiles/nopic.jpg'; }); n.src = n.src; });
+	$(function(){
+		var _contain=$(".contain").outerHeight(true);
+		$(".contain").css("margin-top",-_contain/2);
+		
+		$(".contain_close").click(function(){
+			$(".Containbg").animate({width:0},1000,function(){
+				$(this).hide();
+			});
+		})
+	})
+</script>
+   </div>
+</section>
+<script type="text/javascript">
+	jQuery(".branch").slide({mainCell:".bd ul",effect:"left",autoPage:true,vis:5});
+</script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="Author" content="">
+<meta content=" shop116703760.taobao.com/index.htm" name="design">
+<title>深圳市晶宫设计装饰工程有限公司</title>
+<link rel="stylesheet" type="text/css" href="css/css_whir.css"/>
+<script type="text/javascript" src="scripts/jquery-1.9.1.min.js"></script>
+<!--[if lte IE 9]>
+  <script type="text/javascript" src="scripts/html5shiv.v3.72.min.js"></script>
+<![endif]-->
+<script type="text/javascript">
+   var navID = "1";
+</script>
+<style type="text/css">
+	.top .logo{ height:135px; position:relative; left:-162px; top:50%; margin-top:-68px;}
+	.top .mainnav{ left:-140px;}
+	.top .copyright{ bottom:-111px;}
+	.top .language{ top:-42px;}
+	.Containbg{ background:none; border:none; width:auto;}
+	.contain{ width:863;}
+	.home_contain{ width:0; overflow:hidden;}
+	.contain{ margin-top:-108px;}
+	/*.home_contain div,.home_contain a{ filter:alpha(opacity=0); opacity:0;}*/
+</style>
+</head>
+
+<body>
+<!--top-->
+<header class="top">
+	<div class="logo"><span><a href="index.html"><img src="images/logo.jpg" width="110" height="135" /></a></span></div>
+    <div class="mainnav">
+    	<div class="language"><a href="#" class="cn a">简</a><a href="#" class="ft">繁</a><a href="#" class="en">EN</a></div>
+		<nav>
+        	<ul>
+            	<li id="nav1"><a href="design.html">设计总院</a></li>
+            	<li id="nav2"><a href="case.html">精品案例</a></li>
+            	<li id="nav3"><a href="branch.html">设计分院</a></li>
+            	<li id="nav4"><a href="horon.html">设计荣誉</a></li>
+            	<li id="nav5"><a href="news.html">新闻资讯</a></li>
+            	<li id="nav6"><a href="contact.html">联系我们</a></li>
+            </ul>
+        </nav>
+        <div class="copyright">©2014 深圳市晶宫设计装饰工程有限公司<br /><span>Designed by <a href="http://shop116703760.taobao.com/" target="_blank">我的虚拟世界店铺</a></span></div>
+    </div>
+</header>
+<section class="right_img"><span><img src="images/right_img_03.jpg" width="410" height="717"></span></section>
+<script type="text/javascript">
+	//导航选中
+	$("#nav" + navID).addClass("onnav");
+	
+	$(".mainnav nav li a").hover(function(){
+		$(this).stop().animate({width:105,paddingLeft:33},200);
+	},function(){
+		$(this).stop().animate({width:92,paddingLeft:46},200);
+	})
+</script>
+<!--top End-->
+
+<section class="Containbg">
+    <div class="contain">
+        <div class="home_contain">
+            <div class="con">
+                <div class="bd">
+                    <ul>
+                        <li>
+                            <a href="#" class="img"><img src="uploadfiles/home_img_03.jpg" width="285" height="178"></a>
+                            <div class="div">
+                                <h3 class="h3"><a href="#">1晶宮裝飾感恩季快樂隨行</a></h3>
+                                <p>晶宮裝飾辦公樓“呼吸”，利用現代科技，採用多項再生環保綠色材料，打造時尚健康的辦公環境，本次親子開放日活動就由參觀晶宮裝飾開始，這也是晶宮裝飾親友團們...</p>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#" class="img"><img src="uploadfiles/home_img_03.jpg" width="285" height="178"></a>
+                            <div class="div">
+                                <h3 class="h3"><a href="#">2晶宮裝飾感恩季快樂隨行</a></h3>
+                                <p>晶宮裝飾辦公樓“呼吸”，利用現代科技，採用多項再生環保綠色材料，打造時尚健康的辦公環境，本次親子開放日活動就由參觀晶宮裝飾開始，這也是晶宮裝飾親友團們...</p>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#" class="img"><img src="uploadfiles/home_img_03.jpg" width="285" height="178"></a>
+                            <div class="div">
+                                <h3 class="h3"><a href="#">3晶宮裝飾感恩季快樂隨行</a></h3>
+                                <p>晶宮裝飾辦公樓“呼吸”，利用現代科技，採用多項再生環保綠色材料，打造時尚健康的辦公環境，本次親子開放日活動就由參觀晶宮裝飾開始，這也是晶宮裝飾親友團們...</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="hd"><ul><li></li><li></li><li></li></ul></div>
+            <a href="javascript:void(0)" class="prev"></a>
+            <a href="javascript:void(0)" class="next"></a>
+        </div>
+    </div>
+</section>
+<script type="text/javascript">
+	$(".logo").delay(500).animate({left:0},500,function(){
+		$(this).animate({"height":"100%","margin-top":"0","top":"0"},500,function(){
+			$(".top .mainnav").animate({left:161},500,function(){
+				$(".home_contain").show().animate({width:861},1000,function(){
+					var bdul=$(".home_contain .bd ul"),
+						hdli=$(".home_contain .hd ul li"),
+						_time=5000,
+						time=setInterval(autoplay,_time),
+						num=0,
+						leng=bdul.find("li").length,
+						_html=$(".home_contain .bd ul").html();
+						bdul.find("li").last().after(_html);
+						hdli.first().addClass("on");
+						function autoplay(){
+							num++;
+							if(num>=leng){
+								bdul.stop().animate({top:-num*178},500,function(){
+									$(this).css("top","0");
+								});
+								num=0;
+							}else{
+								bdul.stop().animate({top:-num*178},500);
+							}
+							hdli.removeClass().eq(num).addClass("on");
+						}
+						hdli.mouseover(function(){
+							clearInterval(time);
+							num=$(this).index();
+							bdul.stop().animate({top:-num*178},500);
+							hdli.removeClass().eq(num).addClass("on");
+							time=setInterval(autoplay,_time);
+						})
+						$(".home_contain .prev").click(function(){
+							num--;
+							if(num<0){
+								num=leng-1;
+							}
+							bdul.stop().animate({top:-num*178},500);
+							hdli.removeClass().eq(num).addClass("on");
+							clearInterval(time);
+							time=setInterval(autoplay,_time);
+						})
+						$(".home_contain .next").click(function(){
+							num++;
+							if(num>=leng){
+								bdul.stop().animate({top:-num*178},500,function(){
+									$(this).css("top","0");
+								});
+								num=0;
+							}else{
+								bdul.stop().animate({top:-num*178},500);
+							}
+							hdli.removeClass().eq(num).addClass("on");
+							clearInterval(time);
+							time=setInterval(autoplay,_time);
+						})
+						$(".home_contain").hover(function(){
+							clearInterval(time);
+						},function(){
+							clearInterval(time);
+							time=setInterval(autoplay,_time);
+						})
+								});
+				$(".top .language").animate({top:0},500);
+				$(".top .copyright").animate({bottom:0},500);
+			})
+		})
+	})
+</script>
+</body>
+</html>
