@@ -10,7 +10,7 @@
     </select>
 
     <select id="findById" parameterType="int" resultType="com.lx.pojo.Horon">
-        select horon_info.* from horon left join horon_info on horon.id = horon_info.did where horon_info.did = #{id};
+        select horon_info.* from horon left join horon_info on horon.id = horon_info.did where horon.id = #{id};
     </select>
 
     <select id="findHoronNameAll" resultMap="horonName">

@@ -27,9 +27,8 @@ public class HoronController {
 
     @RequestMapping("findById")
     public List<Horon> findById(int id){
-
-
-        return horonService.findById(id);
+        List<Horon> byId = horonService.findById(id);
+        return byId;
     }
     @RequestMapping("/findHoronAll")
     public List<HoronName> findHoronAll(){

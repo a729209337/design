@@ -75,7 +75,7 @@
         <aside class="SildeBar">
             <div class="menulist">
     <ul id="id2">
-            <li id="menu1"><a href=""onclick="">公司荣誉</a></li>
+            <li id="menu1"><a href="horon.html">公司荣誉</a></li>
 <!--        <li><a href="#">工程荣誉</a></li>-->
 <!--        <li><a href="#">公司荣誉</a></li>-->
 <!--        <li><a href="#">个人荣誉</a></li>-->
@@ -213,10 +213,10 @@
 
         str = "";
 
-        for (var i = 0; i < data.length; i++){
+        $("#id1").empty();
 
+        for (var i = 0; i < data.length; i++){
             str = "<li><a title=\""+data[i].name+"\" href=\""+data[i].photo+"\" rel=\"example1\">"+data[i].name+"</a></li>"
-            $("#id1").empty();
             $("#id1").append(str);
         }
     }
