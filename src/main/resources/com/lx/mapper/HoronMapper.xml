@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lx.mapper.HoronMapper">
-
-    <select id="findAll" resultType="com.lx.pojo.Horon" parameterType="Horon">
+<resultMap id="horonName" type="com.lx.pojo.HoronName">
+    <id property="id" column="id"></id>
+    <result property="horonName" column="horon_name"></result>
+</resultMap>
+    <select id="findAll" resultType="com.lx.pojo.Horon">
         select * from horon_info
     </select>
-    <select id="findById" resultType="com.lx.pojo.Horon">
-        select * from horon_info where id = #{id}
+
+    <select id="findById" parameterType="int" resultType="com.lx.pojo.Horon">
+        select horon_info.* from horon left join horon_info on horon.id = horon_info.did where horon_info.did = #{id};
+    </select>
+
+    <select id="findHoronNameAll" resultMap="horonName">
+        select * from horon
     </select>
 </mapper>
