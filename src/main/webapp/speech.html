@@ -76,7 +76,6 @@
 							<li id="menu1"><a href="speech.html">院长致辞</a></li>
 							<li><a href="org.html">组织架构</a></li>
 							<li><a href="partner.html">合作伙伴</a></li>
-							<li><a href="bignews.html">大事记</a></li>
 						</ul>
 					</div>
 					<script type="text/javascript">
@@ -93,17 +92,23 @@
 							</div>
 							<div id="Scroller-1">
 								<div class="Scroller-Container">
-									<i style=" float:left; margin-left: 50px;"><img src="uploadfiles/branch_tx_03.jpg"><br /></i>
-									<div style=" float:right; width:528px;">
-										深圳市晶宫设计装饰工程有限公司(以下简称“晶宫装饰”)成立于1985年3月，是一家以室内装饰设计和施工为主体，融建筑幕墙、机电设备安装、金属门窗、建筑智能化、消防设施、钢结构工程、安防等为一体的专业化建筑装饰企业。<br><br>
-										晶宫装饰设计力量雄厚，设计院主要从事室内外建筑装饰设计、幕墙设计、规划设计、园林景观设计及各项专业工程设计。以“原创、专业、自然”为宗旨，倾力打造独具特色的原创性设计作品。在设计作品中，倡导“绿色、环保”的主导思想。<br><br>
-										现今，晶宫装饰已经走过34年的辉煌历程。在今后的发展规划中，公司将继续秉承晶宫人“诚以载道、发展共赢、大美无痕、细节精品”的经营理念，以“成就事业，体现人生价值，创立员工家园”为使命，以“最具特色的室内外装饰整体方案服务商”为企业愿景，向着“共筑晶宫梦”的宏伟目标再出发！
-									</div>
+									<i id="info1"></i>
+									<div id="info2"></div>
+<!--									<i style=" float:left; margin-left: 50px;" id="info"><img src="uploadfiles/branch_tx_03.jpg"><br /></i>-->
+<!--									<div style=" float:right; width:528px;">-->
+<!--										深圳市晶宫设计装饰工程有限公司(以下简称“晶宫装饰”)成立于1985年3月，是一家以室内装饰设计和施工为主体，融建筑幕墙、机电设备安装、金属门窗、建筑智能化、消防设施、钢结构工程、安防等为一体的专业化建筑装饰企业。<br><br>-->
+<!--										晶宫装饰设计力量雄厚，设计院主要从事室内外建筑装饰设计、幕墙设计、规划设计、园林景观设计及各项专业工程设计。以“原创、专业、自然”为宗旨，倾力打造独具特色的原创性设计作品。在设计作品中，倡导“绿色、环保”的主导思想。<br><br>-->
+<!--										现今，晶宫装饰已经走过34年的辉煌历程。在今后的发展规划中，公司将继续秉承晶宫人“诚以载道、发展共赢、大美无痕、细节精品”的经营理念，以“成就事业，体现人生价值，创立员工家园”为使命，以“最具特色的室内外装饰整体方案服务商”为企业愿景，向着“共筑晶宫梦”的宏伟目标再出发！-->
+<!--									</div>-->
 								</div>
 								<div class="clear"></div>
+							</div>
 						</article>
 						<div class="Content_b"></div>
+					</div>
+
 				</section>
+
 				<div class="clear"></div>
 				<div class="Bottom">
 					中国建筑装饰百强企业十甲<img src="images/bottom_03.jpg" width="16" height="18" />中国十大室内建筑设计机构
@@ -129,6 +134,33 @@
 						})
 					})
 				</script>
+
+				<script>
+					$(function () {
+						$.ajax({
+							url:"showSpeech",
+							type:"post",
+							dataType:"json",
+							success:function (data) {
+								showSpeech(data);
+							}
+						});
+					});
+
+					function showSpeech(data) {
+
+						str1 = "";
+						str2 = "";
+						for (var i = 0; i < data.length; i++){
+							//87*103
+							str1 = "<i style=\" float:left; margin-left: 50px;\" id=\"info\"><img src=' "+data[i].deanImg+" '>"
+							str2 = "<div style=\" float:right; width:528px;\"> "+ data[i].speechOne +" <br/><br/> "+ data[i].speechTwo +" <br/> <br/> "+ data[i].speechThree +" </div>"
+							$("#info1").append(str1);
+							$("#info2").append(str2);
+						}
+					}
+				</script>
+
 			</div>
 		</section>
 

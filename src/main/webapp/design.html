@@ -76,7 +76,6 @@
 							<li><a href="speech.html">院长致辞</a></li>
 							<li><a href="org.html">组织架构</a></li>
 							<li><a href="partner.html">合作伙伴</a></li>
-							<li><a href="bignews.html">大事记</a></li>
 						</ul>
 					</div>
 					<script type="text/javascript">
@@ -94,14 +93,18 @@
 							<div id="Scroller-1">
 								<div class="Scroller-Container">
 									<i style=" float:left;"><img src="uploadfiles/design_img_03.jpg"></i>
-									<div style=" float:right; width:528px;">我们的设计作品先后获取全国第三届、第四届室内设计大展金奖、银奖及铜奖；“华耐杯”中国室内设计大奖赛一等奖；“缔造灵性空间”首届东鹏杯全国室内设计大赛最具创意奖；全国首届家居装饰设计大奖赛“欧典杯”设计银奖；96国际室内装饰展览会优秀设计奖；中国室内设计师十大封面人物提名奖；改革开放二十年建筑装饰行业发展成就展一等奖；第五届文博会优秀作品金奖、银奖；中国最具影响力十大建筑室内设计机构;中国建筑装饰绿色环保设计百强企业
-										…… <br><br>
-										我们的设计团队具有创造性和实践性，对我们尊贵客户的个人审美品味和需求有着很好的理解，并对您的空间的现在和未来的用途作充分的分析与展望，最终创造出您的期望空间效果，实现投资者的商业价值。 <br><br>
-										我们的设计团队具有全面的专业素质，不仅在酒店、医疗、办公空间的设计上成就了良好业绩，而且在商业娱乐、餐饮、商场、展示等行业的设计方面也赢得了广泛称赞及崇高的荣誉。
-									</div>
+									<div id="info"></div>
+<!--									<div style=" float:right; width:528px;">我们的设计作品先后获取全国第三届、第四届室内设计大展金奖、银奖及铜奖；“华耐杯”中国室内设计大奖赛一等奖；“缔造灵性空间”首届东鹏杯全国室内设计大赛最具创意奖；全国首届家居装饰设计大奖赛“欧典杯”设计银奖；96国际室内装饰展览会优秀设计奖；中国室内设计师十大封面人物提名奖；改革开放二十年建筑装饰行业发展成就展一等奖；第五届文博会优秀作品金奖、银奖；中国最具影响力十大建筑室内设计机构;中国建筑装饰绿色环保设计百强企业-->
+<!--										…… <br><br>-->
+<!--										我们的设计团队具有创造性和实践性，对我们尊贵客户的个人审美品味和需求有着很好的理解，并对您的空间的现在和未来的用途作充分的分析与展望，最终创造出您的期望空间效果，实现投资者的商业价值。 <br><br>-->
+<!--										我们的设计团队具有全面的专业素质，不仅在酒店、医疗、办公空间的设计上成就了良好业绩，而且在商业娱乐、餐饮、商场、展示等行业的设计方面也赢得了广泛称赞及崇高的荣誉。-->
+<!--									</div>-->
 								</div>
 								<div class="clear"></div>
+							</div>
 						</article>
+					</div>
+
 						<div class="Content_b"></div>
 				</section>
 				<div class="clear"></div>
@@ -126,11 +129,33 @@
 							}, 1000, function() {
 								$(this).hide();
 							});
-						})
+						});
 					})
 				</script>
+
+				<script>
+					$(function () {
+						$.ajax({
+							url:"showInfo",
+							type:"post",
+							dataType:"json",
+							success:function (data) {
+								showInfo1(data);
+							}
+						});
+					});
+
+					function showInfo1(data) {
+
+						str = "";
+						for (var i = 0; i < data.length; i++){
+							str = "<div style=\" float:right; width:528px;\"> "+ data[i].detailOne +" <br/><br/> "+ data[i].detailTwo +" <br/> <br/> "+ data[i].detailThree +" </div>"
+							$("#info").append(str);
+						}
+					}
+				</script>
+
 			</div>
 		</section>
-
 	</body>
 </html>

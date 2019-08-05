@@ -4,18 +4,18 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lx.mapper.IndexMapper">
     <select id="showInfo" resultType="com.lx.pojo.Index">
-        select detailOne, detailTwo, detailThree from index
+        select * from designone where id = 1
     </select>
 
     <select id="showSpeech" resultType="com.lx.pojo.Index">
-        select deanImg, speechOne, speechTwo, speechThree from index
+        select deanImg, speechOne, speechTwo, speechThree from designone
     </select>
 
-    <select id="showOrgImg" resultType="String">
-        select orgUrl from index
+    <select id="showOrgImg" resultType="com.lx.pojo.Index">
+        select orgUrl from designone
     </select>
 
-    <select id="showPartner" resultType="com.lx.pojo.Index">
-        select * from partner where iId = 1
+    <select id="showPartner" resultType="com.lx.pojo.Partner">
+        select * from partner
     </select>
 </mapper>

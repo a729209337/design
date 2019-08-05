@@ -1,13 +1,18 @@
 package com.lx.service;
 
+import com.lx.pojo.Index;
+import com.lx.pojo.Partner;
+
+import java.util.List;
+
 public interface IndexSerice {
 
-    String showInfo();
+    List<Index> showInfo();
 
-    String showSpeech();
+    List<Index> showSpeech();
 
-    String showOrgImg();
+    List<Index> showOrgImg();
 
-    String showPartner();
+    List<Partner> showPartner();
 
 }

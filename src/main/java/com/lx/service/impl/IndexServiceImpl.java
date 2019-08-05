@@ -1,9 +1,13 @@
 package com.lx.service.impl;
 
 import com.lx.mapper.IndexMapper;
+import com.lx.pojo.Index;
+import com.lx.pojo.Partner;
 import com.lx.service.IndexSerice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class IndexServiceImpl implements IndexSerice {
@@ -12,22 +16,24 @@ public class IndexServiceImpl implements IndexSerice {
     IndexMapper indexMapper;
 
     @Override
-    public String showInfo() {
-        return indexMapper.showInfo();
+    public List<Index> showInfo() {
+        List<Index> indexList =indexMapper.showInfo();
+        System.out.println(indexList);
+        return indexList;
     }
 
     @Override
-    public String showSpeech() {
+    public List<Index> showSpeech() {
         return indexMapper.showSpeech();
     }
 
     @Override
-    public String showOrgImg() {
+    public List<Index> showOrgImg() {
         return indexMapper.showOrgImg();
     }
 
     @Override
-    public String showPartner() {
+    public List<Partner> showPartner() {
         return indexMapper.showPartner();
     }
 }
