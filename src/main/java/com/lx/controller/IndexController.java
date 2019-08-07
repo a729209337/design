@@ -1,9 +1,13 @@
 package com.lx.controller;
 
+import com.lx.pojo.Index;
+import com.lx.pojo.Partner;
 import com.lx.service.IndexSerice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 public class IndexController {
@@ -16,8 +20,10 @@ public class IndexController {
      * @return
      */
     @RequestMapping("/showInfo")
-    public String showInfo() {
-        return indexSerice.showInfo();
+    public List<Index> showInfo() {
+        List<Index> indexList = indexSerice.showInfo();
+        System.out.println(indexList);
+        return indexList;
     }
 
     /**
@@ -25,7 +31,7 @@ public class IndexController {
      * @return
      */
     @RequestMapping("/showSpeech")
-    public String showSpeech() {
+    public List<Index> showSpeech() {
         return indexSerice.showSpeech();
     }
 
@@ -34,7 +40,7 @@ public class IndexController {
      * @return
      */
     @RequestMapping("/showOrgImg")
-    public String showOrgImg() {
+    public List<Index> showOrgImg() {
         return indexSerice.showOrgImg();
     }
 
@@ -43,7 +49,7 @@ public class IndexController {
      * @return
      */
     @RequestMapping("/showPartner")
-    public String showPartner() {
+    public List<Partner> showPartner() {
         return indexSerice.showPartner();
     }
 

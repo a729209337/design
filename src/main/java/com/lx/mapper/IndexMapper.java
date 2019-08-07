@@ -1,14 +1,18 @@
 package com.lx.mapper;
 
+import com.lx.pojo.Index;
+import com.lx.pojo.Partner;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 @Mapper
 public interface IndexMapper {
-    String showInfo();
+    List<Index> showInfo();
 
-    String showSpeech();
+    List<Index> showSpeech();
 
-    String showOrgImg();
+    List<Index> showOrgImg();
 
-    String showPartner();
+    List<Partner> showPartner();
 }

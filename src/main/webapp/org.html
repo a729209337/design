@@ -70,7 +70,6 @@
         <li><a href="speech.html">院长致辞</a></li>
         <li id="menu1"><a href="org.html">组织架构</a></li>
         <li><a href="partner.html">合作伙伴</a></li>
-        <li><a href="bignews.html">大事记</a></li>
     </ul>
 </div>
 <script type="text/javascript">
@@ -86,8 +85,7 @@
                         </div>
                     </div>
                     <div id="Scroller-1">
-                        <div class="Scroller-Container">
-                            <img style="width: 715px;" src="http://www.jinggongzs.com/template/images/b5.jpg">
+                        <div class="Scroller-Container" id="info">
                         </div>
                     </div>
 					<div class="clear"></div>
@@ -113,6 +111,29 @@
 		})
 	})
 </script>
+
+        <script>
+            $(function () {
+                $.ajax({
+                    url:"showOrgImg",
+                    type:"post",
+                    dataType:"json",
+                    success:function (data) {
+                        showInfo1(data);
+                    }
+                });
+            });
+
+            function showInfo1(data) {
+
+                str = "";
+                for (var i = 0; i < data.length; i++){
+                    str = "<div class=\"Scroller-Container\"><img style=\"width: 715px;\" src='"+data[i].orgUrl+"' /></div>"
+                    $("#info").append(str);
+                }
+            }
+        </script>
+
    </div>
 </section>
 
