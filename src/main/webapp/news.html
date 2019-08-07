@@ -59,24 +59,26 @@
             <div class="Content">
 				<div class="list">
 					<div class="bd">
-                    	<ul>
-                        	<li>
-                            	<div class="title"><a href="news_info.html">晶宫精品——摩根中心办公楼入选2013-2014年度国家优质工程奖</a></div>
-                                <div class="time">2014-12-8 11:33:20</div>
-                                <div class="txt">近日,深圳市晶宫设计装饰工程有限公司(以下简称“晶宫装饰”)作品摩根中心办公楼成功入选2013-2014年度国家优质工程奖</div>
-                            </li>
-                        	<li>
-                            	<div class="title"><a href="#">晶宫精品——摩根中心办公楼入选2013-2014年度国家优质工程奖</a></div>
-                                <div class="time">2014-12-8 11:33:20</div>
-                                <div class="txt">近日,深圳市晶宫设计装饰工程有限公司(以下简称“晶宫装饰”)作品摩根中心办公楼成功入选2013-2014年度国家优质工程奖</div>
-                            </li>
-                        	<li>
-                            	<div class="title"><a href="#">晶宫精品——摩根中心办公楼入选2013-2014年度国家优质工程奖</a></div>
-                                <div class="time">2014-12-8 11:33:20</div>
-                                <div class="txt">近日,深圳市晶宫设计装饰工程有限公司(以下简称“晶宫装饰”)作品摩根中心办公楼成功入选2013-2014年度国家优质工程奖</div>
-                            </li>
+                    	<ul id="id1">
+<!--                        	<li>-->
+<!--                            	<div class="title"><a href="news_info.html">晶宫精品——摩根中心办公楼入选2013-2014年度国家优质工程奖</a></div>-->
+<!--                                <div class="time">2014-12-8 11:33:20</div>-->
+<!--                                <div class="txt">近日,深圳市晶宫设计装饰工程有限公司(以下简称“晶宫装饰”)作品摩根中心办公楼成功入选2013-2014年度国家优质工程奖</div>-->
+<!--                            </li>-->
+<!--                        	<li>-->
+<!--                            	<div class="title"><a href="#">晶宫精品——摩根中心办公楼入选2013-2014年度国家优质工程奖</a></div>-->
+<!--                                <div class="time">2014-12-8 11:33:20</div>-->
+<!--                                <div class="txt">近日,深圳市晶宫设计装饰工程有限公司(以下简称“晶宫装饰”)作品摩根中心办公楼成功入选2013-2014年度国家优质工程奖</div>-->
+<!--                            </li>-->
+<!--                        	<li>-->
+<!--                            	<div class="title"><a href="#">晶宫精品——摩根中心办公楼入选2013-2014年度国家优质工程奖</a></div>-->
+<!--                                <div class="time">2014-12-8 11:33:20</div>-->
+<!--                                <div class="txt">近日,深圳市晶宫设计装饰工程有限公司(以下简称“晶宫装饰”)作品摩根中心办公楼成功入选2013-2014年度国家优质工程奖</div>-->
+<!--                            </li>-->
+
                         </ul>
                         <div class="pages"><a href="#" class="prev1"></a><a href="#" class="prev2"></a><em><a href="#" class="a_cur">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a></em><a href="#" class="next1"></a><a href="#" class="next2"></a></div>
+
                     </div>
                 </div>
           </div>
@@ -100,6 +102,33 @@
 	})
 </script>
    </div>
+ <script type="text/javascript">
+   $(function () {
+       $.ajax({
+           type:"post",
+           url:"findNewsAll",
+           dataType:"json",
+           success:function (data) {
+               showNewsAll(data);
+           },
+           error:function (msg) {
+               alert("展示所有错误！！！" + msg);
+           }
+       });
+   });
+   function showNewsAll(data) {
+
+        $(data).each(function () {
+            var html = "<li>\n" +
+                "    <div hidden class=\"id\">"+this.id+"</div>\n" +
+                "    <div class=\"title\"><a href=\"news_info.html?id="+this.id+"\">"+this.name+"</a></div>\n" +
+                "    <div class=\"time\">"+this.time+"</div>\n" +
+                "    <div class=\"txt\">"+this.title+"</div>\n" +
+                "</li>";
+            $("#id1").append(html);
+        })
+   }
+ </script>
 </section>
 <script type="text/javascript">
 	jQuery(".branch").slide({mainCell:".bd ul",effect:"left",autoPage:true,vis:5});

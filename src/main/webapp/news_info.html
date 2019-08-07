@@ -66,8 +66,8 @@
 	<div class="contain">
         <div class="columnname">新闻资讯<br><span>NEWS</span></div>
         <section class="MainContent case_info">
-       	  <div class="title">
-            	<div class="l">晶宫精品——摩根中心办公楼入选2013-2014年度国家优质工程奖<br><span>新闻资讯</span></div>
+       	  <div class="title" id="Scroller-2">
+<!--            	<div class="l">晶宫精品——摩根中心办公楼入选2013-2014年度国家优质工程奖<br><span>新闻资讯</span></div>-->
             </div>
             <div class="Content">
                 <article class="SinglePage"> 
@@ -78,10 +78,11 @@
                     </div>
                     <div id="Scroller-1">
                         <div class="Scroller-Container">
-                            <div>
-                            	<p style=" margin:0; text-indent:2em;">盐田区体育中心位于深圳市盐田区大梅沙内环路北侧。该场馆为深圳第26届世界大学生夏季运动会比赛场馆之一，主要承办排球比赛预赛项目。</p>
-                                <p style=" text-indent:2em;">体育馆总占地面积16900㎡，分主体育馆和副楼两大功能建筑物。其中主馆占地面积7871㎡，建筑面积14501㎡。外型以珍珠贝壳为设计原型，外走廊及裙楼以浪花为设计原型，体现了梅沙片区优美的海洋自然生态环境特色。主馆内设篮球兼排球场地两片(比赛场和训练场)，共有3080个固定观众席，499个移动观众席以及36位贵宾席，辅助功能配置新闻转播、新闻发布大厅、记者厅、兴奋剂检测中心及健身设施中心等国际甲级场馆标准的配套功能设施。</p>
-                                <p style=" text-indent:2em;">副楼及运动员公寓占地面积9029㎡,建筑面积14907㎡。副楼内设置一栋六层四星级标准的酒店，共30间标准客房和3套豪华套房，可容纳200人就餐的餐厅；设置50人会议室、20～30人会议室各一间；设置高标准网球场地户外5</p>
+                            <div id="id1">
+<!--                            	<p style=" margin:0; text-indent:2em;">盐田区体育中心位于深圳市盐田区大梅沙内环路北侧。该场馆为深圳第26届世界大学生夏季运动会比赛场馆之一，主要承办排球比赛预赛项目。</p>-->
+<!--                                <p style=" text-indent:2em;">体育馆总占地面积16900㎡，分主体育馆和副楼两大功能建筑物。其中主馆占地面积7871㎡，建筑面积14501㎡。外型以珍珠贝壳为设计原型，外走廊及裙楼以浪花为设计原型，体现了梅沙片区优美的海洋自然生态环境特色。主馆内设篮球兼排球场地两片(比赛场和训练场)，共有3080个固定观众席，499个移动观众席以及36位贵宾席，辅助功能配置新闻转播、新闻发布大厅、记者厅、兴奋剂检测中心及健身设施中心等国际甲级场馆标准的配套功能设施。</p>-->
+<!--                                <p style=" text-indent:2em;">副楼及运动员公寓占地面积9029㎡,建筑面积14907㎡。副楼内设置一栋六层四星级标准的酒店，共30间标准客房和3套豪华套房，可容纳200人就餐的餐厅；设置50人会议室、20～30人会议室各一间；设置高标准网球场地户外5</p>-->
+<!--                            -->
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -108,7 +109,40 @@
 			});
 		})
 	})
+    function GetQueryString(name)
+    {
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);//search,查询？后面的参数，并匹配正则
+        if(r!=null)return  unescape(r[2]); return null;
+    }
+    var id = GetQueryString("id");
+
 </script>
+<script type="text/javascript">
+    $(function () {
+        $.ajax({
+            type:"post",
+            url:"findNewId",
+            data:{"id":id},
+            dataType:"json",
+            success:function (data) {
+                showNewsById(data);
+            },
+            error:function (msg) {
+                alert("错误！！！" + msg);
+            }
+        })
+    })
+    function showNewsById(data) {
+        $(data).each(function () {
+            var html = "<div class=\"l\">"+this.name+"<br><span>新闻资讯</span></div>";
+            $("#Scroller-2").append(html);
+            var html1= "<p style=\" margin:0; text-indent:2em;\">"+this.newDetails+"</p>";
+            $("#id1").append(html1);
+        })
+
+    }
+</script>        
    </div>
 </section>
 <script type="text/javascript">
@@ -121,5 +155,7 @@
 		$(".big_img .img img").attr("src",_src);
 	})
 </script>
+
+
 </body>
 </html>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lx.mapper.NewsMapper">
+    <resultMap id="new" type="com.lx.pojo.News">
+        <id property="id" column="id"></id>
+        <result property="newDetails" column="new_details"></result>
+    </resultMap>
+    <select id="findAll" resultType="com.lx.pojo.News">
+        select * from news
+    </select>
+    <select id="findById" resultMap="new" parameterType="int">
+        select news.name,news.title,news_info.new_details from news_info LEFT JOIN news on news_info.id = news.nid where news.nid = #{id}
+    </select>
+</mapper>

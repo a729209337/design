@@ -1,11 +1,13 @@
-package com.lx.service;
+package com.lx.mapper;
 
 import com.github.pagehelper.Page;
 import com.lx.pojo.News;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
-
-public interface NewsSerice {
+@Mapper
+public interface NewsMapper {
     List<News> findAll();
+
     List<News> findById(int id);
 }
