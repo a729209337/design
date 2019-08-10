@@ -18,4 +18,8 @@
     <select id="showPartner" resultType="com.lx.pojo.Partner">
         select * from partner
     </select>
+
+    <select id="showAll" resultType="com.lx.pojo.FirstPage">
+        select * from firstpage
+    </select>
 </mapper>

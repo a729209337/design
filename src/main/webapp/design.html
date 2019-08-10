@@ -10,8 +10,12 @@
 		<script type="text/javascript" src="scripts/jquery-1.7.2.min.js"></script>
 		<!--[if lte IE 9]>
   <script type="text/javascript" src="scripts/html5shiv.v3.72.min.js"></script>
-<![endif]-->
 
+<![endif]-->
+		<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<!-- 生产环境版本，优化了尺寸和速度 -->
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 		<script type="text/javascript" src="scripts/jsScrollbar.js"></script>
 		<script type="text/javascript" src="scripts/jsScroller.js"></script>
 		<script type="text/javascript">
@@ -46,7 +50,7 @@
 				<div class="copyright">©2014 深圳市晶宫设计装饰工程有限公司<br /></div>
 			</div>
 		</header>
-		<section class="right_img"><span><img src="images/right_img_03.jpg" width="410" height="717"></span></section>
+		<section class="right_img"><span"><img src="images/right_img_03.jpg" width="410" height="717"></span></section>
 		<script type="text/javascript">
 			//导航选中
 			$("#nav" + navID).addClass("onnav");
@@ -92,7 +96,7 @@
 							</div>
 							<div id="Scroller-1">
 								<div class="Scroller-Container">
-									<i style=" float:left;"><img src="uploadfiles/design_img_03.jpg"></i>
+									<i id="i1" style=" float:left;"></i>
 									<div id="info"></div>
 <!--									<div style=" float:right; width:528px;">我们的设计作品先后获取全国第三届、第四届室内设计大展金奖、银奖及铜奖；“华耐杯”中国室内设计大奖赛一等奖；“缔造灵性空间”首届东鹏杯全国室内设计大赛最具创意奖；全国首届家居装饰设计大奖赛“欧典杯”设计银奖；96国际室内装饰展览会优秀设计奖；中国室内设计师十大封面人物提名奖；改革开放二十年建筑装饰行业发展成就展一等奖；第五届文博会优秀作品金奖、银奖；中国最具影响力十大建筑室内设计机构;中国建筑装饰绿色环保设计百强企业-->
 <!--										…… <br><br>-->
@@ -151,6 +155,8 @@
 						for (var i = 0; i < data.length; i++){
 							str = "<div style=\" float:right; width:528px;\"> "+ data[i].detailOne +" <br/><br/> "+ data[i].detailTwo +" <br/> <br/> "+ data[i].detailThree +" </div>"
 							$("#info").append(str);
+							str = "<i style=' float:left;'><img src='"+ data[i].detailImg +"'></i>";
+							$("#i1").append(str);
 						}
 					}
 				</script>

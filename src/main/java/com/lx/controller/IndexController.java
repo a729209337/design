@@ -1,5 +1,6 @@
 package com.lx.controller;
 
+import com.lx.pojo.FirstPage;
 import com.lx.pojo.Index;
 import com.lx.pojo.Partner;
 import com.lx.service.IndexSerice;
@@ -51,6 +52,15 @@ public class IndexController {
     @RequestMapping("/showPartner")
     public List<Partner> showPartner() {
         return indexSerice.showPartner();
+    }
+
+    /**
+     * 展示首页的所有信息
+     * @return
+     */
+    @RequestMapping("/showAll")
+    public List<FirstPage> showAll() {
+        return indexSerice.showAll();
     }
 
 }

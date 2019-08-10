@@ -1,5 +1,6 @@
 package com.lx.mapper;
 
+import com.lx.pojo.FirstPage;
 import com.lx.pojo.Index;
 import com.lx.pojo.Partner;
 import org.apache.ibatis.annotations.Mapper;
@@ -15,4 +16,6 @@ public interface IndexMapper {
     List<Index> showOrgImg();
 
     List<Partner> showPartner();
+
+    List<FirstPage> showAll();
 }

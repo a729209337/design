@@ -1,6 +1,7 @@
 package com.lx.service.impl;
 
 import com.lx.mapper.IndexMapper;
+import com.lx.pojo.FirstPage;
 import com.lx.pojo.Index;
 import com.lx.pojo.Partner;
 import com.lx.service.IndexSerice;
@@ -35,5 +36,10 @@ public class IndexServiceImpl implements IndexSerice {
     @Override
     public List<Partner> showPartner() {
         return indexMapper.showPartner();
+    }
+
+    @Override
+    public List<FirstPage> showAll() {
+        return indexMapper.showAll();
     }
 }

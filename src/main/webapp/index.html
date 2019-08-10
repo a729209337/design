@@ -11,6 +11,11 @@
 <!--[if lte IE 9]>
   <script type="text/javascript" src="scripts/html5shiv.v3.72.min.js"></script>
 <![endif]-->
+
+<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- 生产环境版本，优化了尺寸和速度 -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script type="text/javascript">
    var navID = "1";
 </script>
@@ -32,6 +37,7 @@
 <header class="top">
 	<div class="logo"><span><a href="index.html"><img src="images/logo.jpg" width="110" height="135" /></a></span></div>
     <div class="mainnav">
+    	<div class="language"><a href="#" class="cn a">简</a><a href="#" class="ft">繁</a><a href="#" class="en">EN</a></div>
     	<div class="language"><a href="#" class="cn a">简</a><a href="#" class="ft">繁</a><a href="#" class="en">EN</a></div>
 		<nav>
         	<ul>
@@ -66,30 +72,17 @@
                 <div class="bd">
                     <ul>
                         <li>
-                            <a href="#" class="img"><img src="uploadfiles/home_img_03.jpg" width="285" height="178"></a>
+                            <a id="id1" href="#" class="img"></a>
                             <div class="div">
-                                <h3 class="h3"><a href="#">1晶宮裝飾感恩季快樂隨行</a></h3>
-                                <p>晶宮裝飾辦公樓“呼吸”，利用現代科技，採用多項再生環保綠色材料，打造時尚健康的辦公環境，本次親子開放日活動就由參觀晶宮裝飾開始，這也是晶宮裝飾親友團們...</p>
+                                <h4 id="h3" class="h4"></h4>
+                                <p id="p1"></p>
                             </div>
                         </li>
-                        <li>
-                            <a href="#" class="img"><img src="uploadfiles/home_img_03.jpg" width="285" height="178"></a>
-                            <div class="div">
-                                <h3 class="h3"><a href="#">2晶宮裝飾感恩季快樂隨行</a></h3>
-                                <p>晶宮裝飾辦公樓“呼吸”，利用現代科技，採用多項再生環保綠色材料，打造時尚健康的辦公環境，本次親子開放日活動就由參觀晶宮裝飾開始，這也是晶宮裝飾親友團們...</p>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="#" class="img"><img src="uploadfiles/home_img_03.jpg" width="285" height="178"></a>
-                            <div class="div">
-                                <h3 class="h3"><a href="#">3晶宮裝飾感恩季快樂隨行</a></h3>
-                                <p>晶宮裝飾辦公樓“呼吸”，利用現代科技，採用多項再生環保綠色材料，打造時尚健康的辦公環境，本次親子開放日活動就由參觀晶宮裝飾開始，這也是晶宮裝飾親友團們...</p>
-                            </div>
-                        </li>
+
                     </ul>
                 </div>
             </div>
-            <div class="hd"><ul><li></li><li></li><li></li></ul></div>
+            <div class="hd"><ul><li style="margin-top: 30px"></li></ul></div>
             <a href="javascript:void(0)" class="prev"></a>
             <a href="javascript:void(0)" class="next"></a>
         </div>
@@ -164,6 +157,30 @@
 			})
 		})
 	})
+
+    $(function () {
+        $.ajax({
+            url:"showAll",
+            type:"post",
+            dataType:"json",
+            success:function (data) {
+                showAll(data);
+            }
+        });
+    });
+
+    function showAll(data) {
+
+        str = "";
+        for (var i = 0; i < data.length; i++){
+            str = "<a href='"+ data[i].address +"' class=\"img\"><img src='"+ data[i].imageUrl +"' width=\"285\" height=\"178\"></a>"
+            $("#id1").append(str);
+            str = "<h4 class='h4'><a href='"+data[i].address+"'>"+data[i].title+"</a></h4>";
+            $("#h3").append(str);
+            str = "<p><h4>"+ data[i].info +"<h4></p>";
+            $("#p1").append(str);
+        }
+    }
 </script>
 </body>
 </html>

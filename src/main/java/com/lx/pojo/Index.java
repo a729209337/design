@@ -2,6 +2,7 @@ package com.lx.pojo;
 
 public class Index {
     private int id;
+    private String detailImg;
     private String detailOne;
     private String detailTwo;
     private String detailThree;
@@ -17,6 +18,14 @@ public class Index {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getDetailImg() {
+        return detailImg;
+    }
+
+    public void setDetailImg(String detailImg) {
+        this.detailImg = detailImg;
     }
 
     public String getDetailOne() {
@@ -87,6 +96,7 @@ public class Index {
     public String toString() {
         return "Index{" +
                 "id=" + id +
+                ", detailImg='" + detailImg + '\'' +
                 ", detailOne='" + detailOne + '\'' +
                 ", detailTwo='" + detailTwo + '\'' +
                 ", detailThree='" + detailThree + '\'' +

@@ -1,5 +1,6 @@
 package com.lx.service;
 
+import com.lx.pojo.FirstPage;
 import com.lx.pojo.Index;
 import com.lx.pojo.Partner;
 
@@ -15,4 +16,5 @@ public interface IndexSerice {
 
     List<Partner> showPartner();
 
+    List<FirstPage> showAll();
 }
