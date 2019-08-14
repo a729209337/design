@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
 @Mapper
 public interface NewsMapper {
-    List<News> findAll();
-
+//    List<News> findAll();
+    Page<News> findAll();
     List<News> findById(int id);
 }
