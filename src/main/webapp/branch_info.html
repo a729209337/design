@@ -30,6 +30,43 @@
 </head>
 
 <body>
+<script>
+    $(function () {
+        $.get("findAll",null,function (data) {
+            $(data).each(function () {
+                var html = '<li><a href="branch_index.html?id=' + this.id +'">'+ this.branchName +"</a></li>"
+                $("#lala").append(html);
+            })
+        })
+    })
+
+    function GetQueryString(name)
+    {
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);//search,查询？后面的参数，并匹配正则
+        if(r!=null)return  unescape(r[2]); return null;
+    }
+
+    $(function () {
+        var id = GetQueryString("id");
+        $.post("findById",{"id":id},function (data) {
+            alert(id);
+            var html = "<div class=\"Scroller-Container\">\n" +
+                "<div class=\"img\"><img src=" + data.photo + "></div>\n" +
+                " <div class=\"l\"><span></span> " + data.branchName + " </div>\n" +
+                "<div class=\"l_nav\"><a href=\"branch_index.html?id=" + data.id + "\">设计院介绍</a><a href=\"branch_info.html?id=" + data.id + "\">院长介绍</a><a href=\"branch_list.html?id=" + data.id + "\">主创设计师</a></div>\n" +
+                "<div class=\"txt\">\n" +
+                "<div class=\"tx\">\n" +
+                "<img src=" + data.photo + " width=\"87\" height=\"103\"><br>" + data.name + "</div>\n" +
+                "<div class=\"text\">" + data.detail + "</div>\n" +
+                "</div>\n" +
+                "<div class=\"clear\"></div>\n" +
+                "</div>";
+            $("#lalala").append(html);
+        })
+    })
+</script>
+
 <!--top-->
 <header class="top">
 	<div class="logo"><span><a href="index.html"><img src="images/logo.jpg" width="110" height="135" /></a></span></div>
@@ -68,8 +105,8 @@
         <aside class="SildeBar">
             <div class="menulist branch_nav">
 	<div class="bd">
-        <ul>
-            <li id="menu1"><a href="#">设计一分院</a></li><li><a href="#">设计二分院</a></li><li><a href="#">设计三分院</a></li><li><a href="#">设计四分院</a></li><li><a href="#">设计五分院</a></li><li><a href="#">设计六分院</a></li><li><a href="#">设计七分院</a></li><li><a href="#">设计一分院</a></li><li><a href="#">设计二分院</a></li><li><a href="#">设计三分院</a></li><li><a href="#">设计四分院</a></li><li><a href="#">设计五分院</a></li><li><a href="#">设计六分院</a></li><li><a href="#">设计七分院</a></li>
+        <ul id="lala">
+<!--            <li id="menu1"><a href="#">设计一分院</a></li><li><a href="#">设计二分院</a></li><li><a href="#">设计三分院</a></li><li><a href="#">设计四分院</a></li><li><a href="#">设计五分院</a></li><li><a href="#">设计六分院</a></li><li><a href="#">设计七分院</a></li><li><a href="#">设计一分院</a></li><li><a href="#">设计二分院</a></li><li><a href="#">设计三分院</a></li><li><a href="#">设计四分院</a></li><li><a href="#">设计五分院</a></li><li><a href="#">设计六分院</a></li><li><a href="#">设计七分院</a></li>-->
         </ul>
     </div>
     <a href="javascript:void(0)" class="prev"></a>
@@ -88,19 +125,19 @@
                         </div>
                     </div>
                     <div id="Scroller-1">
-                        <div class="Scroller-Container">
-                            <div class="img"><img src="uploadfiles/branch_img1_03.jpg"></div>
-                            <div class="l"><span></span>设计一分院</div>
-                            <div class="l_nav"><a href="branch_index.html">设计院介绍</a><a href="branch_index2.html" class="a">院长介绍</a><a href="branch_list.html">主创设计师</a></div>
-                            <div class="txt">
-                            	<div class="tx">
-                                	<img src="uploadfiles/branch_tx_03.jpg" width="87" height="103"><br>陶海燕
-                                </div>
-                                <div class="text">
-                                	陶海燕 (设计一分院院院长)<br>个人简介：<br>陶海燕，深圳市晶宫设计装饰工程有限公司设计研究院副院长，设计一分院院长，高级室内建筑师。<br>陶海燕女士多年致力于酒店空间的专业设计，主持、参与过多项知名酒店项目设计，多个项目获得设计大奖。<br><br>主要作品（精选）：<br>成都西部智谷C7组团名人酒店<br>山东栗园酒店<br>山东诸城博物馆<br>深圳宝亨达大酒店<br>光大银行大连分行<br>泰州华侨城云海温泉<br>孟加拉国太平洋联盟酒店<br>清新万亩铂金五星级酒店<br>珞珈山国际商务酒店
-                                </div>
-                            </div>
-                            <div class="clear"></div>
+                        <div class="Scroller-Container" id="lalala">
+<!--                            <div class="img"><img src="uploadfiles/branch_img1_03.jpg"></div>-->
+<!--                            <div class="l"><span></span>设计一分院</div>-->
+<!--                            <div class="l_nav"><a href="branch_index.html">设计院介绍</a><a href="branch_index2.html" class="a">院长介绍</a><a href="branch_list.html">主创设计师</a></div>-->
+<!--                            <div class="txt">-->
+<!--                            	<div class="tx">-->
+<!--                                	<img src="uploadfiles/branch_tx_03.jpg" width="87" height="103"><br>陶海燕-->
+<!--                                </div>-->
+<!--                                <div class="text">-->
+<!--                                	陶海燕 (设计一分院院院长)<br>个人简介：<br>陶海燕，深圳市晶宫设计装饰工程有限公司设计研究院副院长，设计一分院院长，高级室内建筑师。<br>陶海燕女士多年致力于酒店空间的专业设计，主持、参与过多项知名酒店项目设计，多个项目获得设计大奖。<br><br>主要作品（精选）：<br>成都西部智谷C7组团名人酒店<br>山东栗园酒店<br>山东诸城博物馆<br>深圳宝亨达大酒店<br>光大银行大连分行<br>泰州华侨城云海温泉<br>孟加拉国太平洋联盟酒店<br>清新万亩铂金五星级酒店<br>珞珈山国际商务酒店-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="clear"></div>-->
                         </div>
                     </div>
                 </article>

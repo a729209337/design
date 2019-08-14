@@ -30,6 +30,34 @@
 </head>
 
 <body>
+<script>
+    function GetQueryString(name)
+    {
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);//search,查询？后面的参数，并匹配正则
+        if(r!=null)return  unescape(r[2]); return null;
+    }
+
+    $(function () {
+        var id = GetQueryString("id");
+        $.post("findById",{"id":id},function (data) {
+            var html = "<div id=\"Scroller-1\">\n" +
+                "<div class=\"Scroller-Container\">\n" +
+                "<div class=\"img\"><img src=" + data.photo + "></div>\n" +
+                " <div class=\"l\"><span></span>" + data.branchName + "</div>\n" +
+                "<div class=\"l_nav\"><a href=\"branch_index.html?id=" + data.id + "\">设计院介绍</a><a href=\"branch_info.html?id=" + data.id + "\">院长介绍</a><a href=\"branch_list.html?id=" + data.id + "\">主创设计师</a></div>\n" +
+                "<div class=\"txt\">" + data.branchDetail +"</div>\n" +
+                "<div class=\"clear\"></div>\n" +
+                "</div>\n" +
+                "</div>";
+            $("#lalala").append(html);
+
+        })
+    })
+
+
+</script>
+
 <!--top-->
 <header class="top">
 	<div class="logo"><span><a href="index.html"><img src="images/logo.jpg" width="110" height="135" /></a></span></div>
@@ -68,8 +96,8 @@
         <aside class="SildeBar">
             <div class="menulist branch_nav">
 	<div class="bd">
-        <ul>
-            <li id="menu1"><a href="#">设计一分院</a></li><li><a href="#">设计二分院</a></li><li><a href="#">设计三分院</a></li><li><a href="#">设计四分院</a></li><li><a href="#">设计五分院</a></li><li><a href="#">设计六分院</a></li><li><a href="#">设计七分院</a></li><li><a href="#">设计一分院</a></li><li><a href="#">设计二分院</a></li><li><a href="#">设计三分院</a></li><li><a href="#">设计四分院</a></li><li><a href="#">设计五分院</a></li><li><a href="#">设计六分院</a></li><li><a href="#">设计七分院</a></li>
+        <ul id="lala">
+<!--            <li id="menu1"><a href="#">设计一分院</a></li><li><a href="#">设计二分院</a></li><li><a href="#">设计三分院</a></li><li><a href="#">设计四分院</a></li><li><a href="#">设计五分院</a></li><li><a href="#">设计六分院</a></li><li><a href="#">设计七分院</a></li><li><a href="#">设计一分院</a></li><li><a href="#">设计二分院</a></li><li><a href="#">设计三分院</a></li><li><a href="#">设计四分院</a></li><li><a href="#">设计五分院</a></li><li><a href="#">设计六分院</a></li><li><a href="#">设计七分院</a></li>-->
         </ul>
     </div>
     <a href="javascript:void(0)" class="prev"></a>
@@ -88,12 +116,12 @@
                         </div>
                     </div>
                     <div id="Scroller-1">
-                        <div class="Scroller-Container">
-                            <div class="img"><img src="uploadfiles/branch_img1_03.jpg"></div>
-                            <div class="l"><span></span>设计一分院</div>
-                            <div class="l_nav"><a href="branch_index.html" class="a">设计院介绍</a><a href="#">院长介绍</a><a href="branch_list.html">主创设计师</a></div>
-                            <div class="txt">我们的设计作品先后获取全国第三届、第四届室内设计大展金奖、银奖及铜奖；“华耐杯”中国室内设计大奖赛一等奖；“缔造灵性空间”首届东鹏杯全国室内设计大赛最具创意奖；全国首届家居装饰设计大奖赛“欧典杯”设计银奖；96国际室内装饰展览会优秀设计奖；中国室内设计师十大封面人物提名奖；改革开放二十年建筑装饰行业发展成就展一等奖；第五届文博会优秀作品金奖、银奖；中国最具影响力十大建筑室内设计机构;中国建筑装饰绿色环保设计百强企业 …… <br><br>我们的设计团队具有创造性和实践性，对我们尊贵客户的个人审美品味和需求有着很好的理解并对您的空间的现在和未来的用途作充分的分析与展望，最终创造出您的期望空间效果，实现投资者的商业价值。 <br><br>我们的设计团队具有全面的专业素质，不仅在酒店、医疗、办公空间的设计上成就了良好业绩而且在商业娱乐、餐饮、商场、展示等行业的设计方面也赢得了广泛称赞及崇高的荣誉。 </div>
-                            <div class="clear"></div>
+                        <div class="Scroller-Container" id="lalala">
+<!--                            <div class="img"><img src="uploadfiles/branch_img1_03.jpg"></div>-->
+<!--                            <div class="l"><span></span>设计一分院</div>-->
+<!--                            <div class="l_nav"><a href="branch_index.html?id=' + this,id + '" class="a">设计院介绍</a><a href="#">院长介绍</a><a href="branch_list.html">主创设计师</a></div>-->
+<!--                            <div class="txt">我们的设计作品先后获取全国第三届、第四届室内设计大展金奖、银奖及铜奖；“华耐杯”中国室内设计大奖赛一等奖；“缔造灵性空间”首届东鹏杯全国室内设计大赛最具创意奖；全国首届家居装饰设计大奖赛“欧典杯”设计银奖；96国际室内装饰展览会优秀设计奖；中国室内设计师十大封面人物提名奖；改革开放二十年建筑装饰行业发展成就展一等奖；第五届文博会优秀作品金奖、银奖；中国最具影响力十大建筑室内设计机构;中国建筑装饰绿色环保设计百强企业 …… <br><br>我们的设计团队具有创造性和实践性，对我们尊贵客户的个人审美品味和需求有着很好的理解并对您的空间的现在和未来的用途作充分的分析与展望，最终创造出您的期望空间效果，实现投资者的商业价值。 <br><br>我们的设计团队具有全面的专业素质，不仅在酒店、医疗、办公空间的设计上成就了良好业绩而且在商业娱乐、餐饮、商场、展示等行业的设计方面也赢得了广泛称赞及崇高的荣誉。 </div>-->
+<!--                            <div class="clear"></div>-->
                         </div>
                     </div>
                 </article>
@@ -116,6 +144,17 @@
 			});
 		})
 	})
+
+    $(function () {
+        $.get("findAll",null,function (data) {
+            $(data).each(function () {
+                var id = this.id;
+                var html = '<li><a href="branch_index.html?id=' + this.id +'">'+ this.branchName +"</a></li>"
+                $("#lala").append(html);
+            })
+
+        })
+    })
 </script>
    </div>
 </section>

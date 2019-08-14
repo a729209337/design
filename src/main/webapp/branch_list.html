@@ -31,6 +31,41 @@
 
 <body>
 <!--top-->
+<script>
+    $(function () {
+        $.get("findAll",null,function (data) {
+            $(data).each(function () {
+                var html = '<li><a href="branch_index.html?id=' + this.id +'">'+ this.branchName +"</a></li>"
+                $("#lala").append(html);
+            })
+        })
+    })
+
+    function GetQueryString(name)
+    {
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);//search,查询？后面的参数，并匹配正则
+        if(r!=null)return  unescape(r[2]); return null;
+    }
+
+    $(function () {
+        var id = GetQueryString("id");
+        $.post("findByBranchId",{"id":id},function(data){
+            $(data).each(function () {
+                var html = "<div class=\"img\"><img src=" + this.photo
+                    + "></div>\n" +
+                    "<div class=\"l\"><span></span>" + this.branchName + "</div>\n" +
+                    "<div class=\"l_nav\"><a href=\"branch_index.html?id=" + this.id + "\">设计院介绍</a><a href=\"branch_info.html?id=" + this.id + "\">院长介绍</a><a href=\"branch_list.html?id=" + this.id + "\" class=\"a\">主创设计师</a></div>\n" +
+                    "<div class=\"list\">\n" +
+                    "<ul><li><a href=\"branch_info.html?id="+this.id+"\"><img src=" + this.stylistPhoto +"><br>" + this.stylistName + "</a></li></ul>\n" +
+                    "<div class=\"clear\"></div></div><div class=\"clear\"></div>"
+                $("#lalala").append(html);
+            })
+        })
+    })
+
+</script>
+
 <header class="top">
 	<div class="logo"><span><a href="index.html"><img src="images/logo.jpg" width="110" height="135" /></a></span></div>
     <div class="mainnav">
@@ -68,9 +103,9 @@
         <aside class="SildeBar">
             <div class="menulist branch_nav">
 	<div class="bd">
-        <ul>
-            <li id="menu1"><a href="#">设计一分院</a></li><li><a href="#">设计二分院</a></li><li><a href="#">设计三分院</a></li><li><a href="#">设计四分院</a></li><li><a href="#">设计五分院</a></li><li><a href="#">设计六分院</a></li><li><a href="#">设计七分院</a></li><li><a href="#">设计一分院</a></li><li><a href="#">设计二分院</a></li><li><a href="#">设计三分院</a></li><li><a href="#">设计四分院</a></li><li><a href="#">设计五分院</a></li><li><a href="#">设计六分院</a></li><li><a href="#">设计七分院</a></li>
-        </ul>
+        <ul id="lala">
+<!--            <li id="menu1"><a href="#">设计一分院</a></li><li><a href="#">设计二分院</a></li><li><a href="#">设计三分院</a></li><li><a href="#">设计四分院</a></li><li><a href="#">设计五分院</a></li><li><a href="#">设计六分院</a></li><li><a href="#">设计七分院</a></li><li><a href="#">设计一分院</a></li><li><a href="#">设计二分院</a></li><li><a href="#">设计三分院</a></li><li><a href="#">设计四分院</a></li><li><a href="#">设计五分院</a></li><li><a href="#">设计六分院</a></li><li><a href="#">设计七分院</a></li>-->
+       </ul>
     </div>
     <a href="javascript:void(0)" class="prev"></a>
     <a href="javascript:void(0)" class="next"></a>
@@ -88,31 +123,31 @@
                         </div>
                     </div>
                     <div id="Scroller-1">
-                        <div class="Scroller-Container">
-                            <div class="img"><img src="uploadfiles/branch_img1_03.jpg"></div>
-                            <div class="l"><span></span>设计一分院</div>
-                            <div class="l_nav"><a href="branch_index.html">设计院介绍</a><a href="#">院长介绍</a><a href="branch_list.html" class="a">主创设计师</a></div>
-                            <div class="list">
-                            	<ul>
-                                	<li><a href="branch_info.html"><img src="uploadfiles/branch_list_img_03.jpg"><br>陶海燕</a></li>
-                                	<li><a href="branch_info.html"><img src="uploadfiles/branch_list_img_03.jpg"><br>陶海燕</a></li>
-                                	<li><a href="branch_info.html"><img src="uploadfiles/branch_list_img_03.jpg"><br>陶海燕</a></li>
-                                	<li><a href="branch_info.html"><img src="uploadfiles/branch_list_img_03.jpg"><br>陶海燕</a></li>
-                                	<li><a href="branch_info.html"><img src="uploadfiles/branch_list_img_03.jpg"><br>陶海燕</a></li>
-                                	<li><a href="branch_info.html"><img src="uploadfiles/branch_list_img_03.jpg"><br>陶海燕</a></li>
-                                	<li><a href="branch_info.html"><img src="uploadfiles/branch_list_img_03.jpg"><br>陶海燕</a></li>
-                                	<li><a href="branch_info.html"><img src="uploadfiles/branch_list_img_03.jpg"><br>陶海燕</a></li>
-                                	<li><a href="branch_info.html"><img src="uploadfiles/branch_list_img_03.jpg"><br>陶海燕</a></li>
-                                	<li><a href="branch_info.html"><img src="uploadfiles/branch_list_img_03.jpg"><br>陶海燕</a></li>
-                                	<li><a href="branch_info.html"><img src="uploadfiles/branch_list_img_03.jpg"><br>陶海燕</a></li>
-                                	<li><a href="branch_info.html"><img src="uploadfiles/branch_list_img_03.jpg"><br>陶海燕</a></li>
-                                	<li><a href="branch_info.html"><img src="uploadfiles/branch_list_img_03.jpg"><br>陶海燕</a></li>
-                                	<li><a href="branch_info.html"><img src="uploadfiles/branch_list_img_03.jpg"><br>陶海燕</a></li>
-                                	<li><a href="branch_info.html"><img src="uploadfiles/branch_list_img_03.jpg"><br>陶海燕</a></li>
-                                </ul>
-                                <div class="clear"></div>
-                            </div>
-                            <div class="clear"></div>
+                        <div class="Scroller-Container" id="lalala">
+<!--                            <div class="img"><img src="uploadfiles/branch_img1_03.jpg"></div>-->
+<!--                            <div class="l"><span></span>设计一分院</div>-->
+<!--                            <div class="l_nav"><a href="branch_index.html">设计院介绍</a><a href="#">院长介绍</a><a href="branch_list.html" class="a">主创设计师</a></div>-->
+<!--                            <div class="list">-->
+<!--                            	<ul>-->
+<!--                                	<li><a href="branch_info.html"><img src="uploadfiles/branch_list_img_03.jpg"><br>陶海燕</a></li>-->
+<!--                                	<li><a href="branch_info.html"><img src="uploadfiles/branch_list_img_03.jpg"><br>陶海燕</a></li>-->
+<!--                                	<li><a href="branch_info.html"><img src="uploadfiles/branch_list_img_03.jpg"><br>陶海燕</a></li>-->
+<!--                                	<li><a href="branch_info.html"><img src="uploadfiles/branch_list_img_03.jpg"><br>陶海燕</a></li>-->
+<!--                                	<li><a href="branch_info.html"><img src="uploadfiles/branch_list_img_03.jpg"><br>陶海燕</a></li>-->
+<!--                                	<li><a href="branch_info.html"><img src="uploadfiles/branch_list_img_03.jpg"><br>陶海燕</a></li>-->
+<!--                                	<li><a href="branch_info.html"><img src="uploadfiles/branch_list_img_03.jpg"><br>陶海燕</a></li>-->
+<!--                                	<li><a href="branch_info.html"><img src="uploadfiles/branch_list_img_03.jpg"><br>陶海燕</a></li>-->
+<!--                                	<li><a href="branch_info.html"><img src="uploadfiles/branch_list_img_03.jpg"><br>陶海燕</a></li>-->
+<!--                                	<li><a href="branch_info.html"><img src="uploadfiles/branch_list_img_03.jpg"><br>陶海燕</a></li>-->
+<!--                                	<li><a href="branch_info.html"><img src="uploadfiles/branch_list_img_03.jpg"><br>陶海燕</a></li>-->
+<!--                                	<li><a href="branch_info.html"><img src="uploadfiles/branch_list_img_03.jpg"><br>陶海燕</a></li>-->
+<!--                                	<li><a href="branch_info.html"><img src="uploadfiles/branch_list_img_03.jpg"><br>陶海燕</a></li>-->
+<!--                                	<li><a href="branch_info.html"><img src="uploadfiles/branch_list_img_03.jpg"><br>陶海燕</a></li>-->
+<!--                                	<li><a href="branch_info.html"><img src="uploadfiles/branch_list_img_03.jpg"><br>陶海燕</a></li>-->
+<!--                                </ul>-->
+<!--                                <div class="clear"></div>-->
+<!--                            </div>-->
+<!--                            <div class="clear"></div>-->
                         </div>
                     </div>
                 </article>

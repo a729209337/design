@@ -59,13 +59,13 @@
             <div class="Content">
 				<div class="list">
 					<div class="bd">
-                    	<ul>
-                        	<li><a href="branch_index.html">设计一分院</a></li>
-                        	<li><a href="branch_index.html">设计二分院</a></li>
-                        	<li><a href="branch_index.html">设计三分院</a></li>
-                        	<li><a href="branch_index.html">设计四分院</a></li>
-                        	<li><a href="branch_index.html">设计五分院</a></li>
-                        	<li><a href="branch_index.html">设计六分院</a></li>
+                    	<ul id="lala">
+<!--                        	<li><a href="branch_index.html">设计一分院</a></li>-->
+<!--                        	<li><a href="branch_index.html">设计二分院</a></li>-->
+<!--                        	<li><a href="branch_index.html">设计三分院</a></li>-->
+<!--                        	<li><a href="branch_index.html">设计四分院</a></li>-->
+<!--                        	<li><a href="branch_index.html">设计五分院</a></li>-->
+<!--                        	<li><a href="branch_index.html">设计六分院</a></li>-->
                         </ul>
                     </div>
                 	<a href="javascript:void(0)" class="prev"></a>
@@ -88,6 +88,17 @@
 			$(".Containbg").animate({width:0},1000,function(){
 				$(this).hide();
 			});
+		})
+	})
+
+	$(function () {
+		$.get("findAll",null,function (data) {
+			$(data).each(function () {
+				var id = this.id;
+				var html = '<li><a href="branch_index.html?id=' + this.id +'">'+ this.branchName +"</a></li>"
+				$("#lala").append(html);
+			})
+
 		})
 	})
 </script>
