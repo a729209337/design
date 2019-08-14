@@ -13,8 +13,12 @@ public class NewsServiceImpl implements NewsSerice {
     @Autowired
     NewsMapper newsMapper;
     @Override
-    public List<News> findAll() {
-        List<News> newsList = newsMapper.findAll();
+//    public List<News> findAll() {
+//        List<News> newsList = newsMapper.findAll();
+//        return newsList;
+//    }
+    public Page<News> findAll() {
+        Page<News> newsList = newsMapper.findAll();
         return newsList;
     }
 

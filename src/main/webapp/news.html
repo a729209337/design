@@ -17,6 +17,55 @@
 		menuID = "1";
 </script>
 <script type="text/javascript" src="scripts/jquery.SuperSlide.js"></script>
+    <script type="text/javascript" src="scripts/pageination.js"></script>
+    <style>
+        .pageination_align {
+            text-align: center
+        }
+
+        .pageination {
+            color: #48576a;
+            font-size: 12px;
+            display: inline-block;
+            user-select: none;
+        }
+
+        .pagination_page {
+            padding: 0 4px;
+            border: 1px solid #d1dbe5;
+            border-right: 0;
+            background: #fff;
+            font-size: 13px;
+            min-width: 28px;
+            height: 28px;
+            line-height: 28px;
+            cursor: pointer;
+            box-sizing: border-box;
+            text-align: center;
+            float: left;
+        }
+
+        .pagination_page_right {
+            border-right: 1px solid #d1dbe5;
+        }
+
+        .pagination_page:hover {
+            color: #20a0ff;
+        }
+
+        .disabled {
+            color: #e4e4e4 !important;
+            background-color: #fff;
+            cursor: not-allowed;
+        }
+
+        .pagination_page_active {
+            border-color: #20a0ff;
+            background-color: #20a0ff;
+            color: #fff !important;;
+            cursor: default;
+        }
+    </style>
 </head>
 
 <body>
@@ -26,7 +75,7 @@
     <div class="mainnav">
     	<div class="language"><a href="#" class="cn a">简</a><a href="#" class="ft">繁</a><a href="#" class="en">EN</a></div>
 		<nav>
-        	<ul>
+        	<ul id="id">
             	<li id="nav1"><a href="design.html">设计总院</a></li>
             	<li id="nav2"><a href="case.html">精品案例</a></li>
             	<li id="nav3"><a href="branch.html">设计分院</a></li>
@@ -75,9 +124,8 @@
 <!--                                <div class="time">2014-12-8 11:33:20</div>-->
 <!--                                <div class="txt">近日,深圳市晶宫设计装饰工程有限公司(以下简称“晶宫装饰”)作品摩根中心办公楼成功入选2013-2014年度国家优质工程奖</div>-->
 <!--                            </li>-->
-
                         </ul>
-                        <div class="pages"><a href="#" class="prev1"></a><a href="#" class="prev2"></a><em><a href="#" class="a_cur">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a></em><a href="#" class="next1"></a><a href="#" class="next2"></a></div>
+                <!--        <div class="pages"><a href="#" class="prev1"></a><a href="#" class="prev2"></a><em><a href="#" class="a_cur">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a></em><a href="#" class="next1"></a><a href="#" class="next2"></a></div>-->
 
                     </div>
                 </div>
@@ -107,9 +155,21 @@
        $.ajax({
            type:"post",
            url:"findNewsAll",
+            //data:{"total":total},
+           //data:$("#id").serialize(),
            dataType:"json",
            success:function (data) {
                showNewsAll(data);
+               data=data.list
+               $(data).each(function () {
+                   var html = "<li>\n" +
+                       "    <div hidden class=\"id\">"+this.id+"</div>\n" +
+                       "    <div class=\"title\"><a href=\"news_info.html?id="+this.id+"\">"+this.name+"</a></div>\n" +
+                       "    <div class=\"time\">"+this.time+"</div>\n" +
+                       "    <div class=\"txt\">"+this.title+"</div>\n" +
+                       "</li>";
+                   $("#id1").append(html);
+               })
            },
            error:function (msg) {
                alert("展示所有错误！！！" + msg);
@@ -118,15 +178,7 @@
    });
    function showNewsAll(data) {
 
-        $(data).each(function () {
-            var html = "<li>\n" +
-                "    <div hidden class=\"id\">"+this.id+"</div>\n" +
-                "    <div class=\"title\"><a href=\"news_info.html?id="+this.id+"\">"+this.name+"</a></div>\n" +
-                "    <div class=\"time\">"+this.time+"</div>\n" +
-                "    <div class=\"txt\">"+this.title+"</div>\n" +
-                "</li>";
-            $("#id1").append(html);
-        })
+
    }
  </script>
 </section>

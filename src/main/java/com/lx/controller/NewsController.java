@@ -1,6 +1,5 @@
 package com.lx.controller;
 
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.lx.pojo.News;
@@ -18,12 +17,12 @@ public class NewsController {
     NewsSerice newsSerice;
 
     @RequestMapping("/findNewsAll")
-    public List<News> findNewsAll(){
-//        PageHelper.startPage(pageNo,pageSize);
-        List<News> newsList = newsSerice.findAll();
-        return newsList;
-//        PageInfo<News> pageInfo = new PageInfo<>(newsSerice.findAll());
-//        return pageInfo;
+    public PageInfo<News> findNewsAll(@RequestParam(defaultValue = "1")int pageNo, @RequestParam(defaultValue = "10") int pageSize){
+       PageHelper.startPage(pageNo,pageSize);
+//        List<News> newsList = newsSerice.findAll();
+//        return newsList;
+      PageInfo<News> pageInfo = new PageInfo<>(newsSerice.findAll());
+        return pageInfo;
     }
     @RequestMapping("/findNewId")
     public List<News> findNewId(int id){
